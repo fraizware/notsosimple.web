@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleap
+        is.com">
+<link rel="preconnect" href="https://fonts.gstatic.com"
+ crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rob
+oto:ital,wght@0,
+100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,50
+0;1,700;1,900&display=swap" rel="stylesheet">
+        <style>
+            p {
+                font-family: roboto,arial;
+            }
+        
+            .thumbnail{
+                width: 100%;
+    
+                
+
+            }
+            
+            .video-tittle{
+                
+                font-size: 14px;
+                margin-top: 0px;
+                font-weight: 500;
+                line-height: 14px;
+            }
+            .video-author{
+                color: rgb(109, 107, 107);
+                font-size: 15px;
+                margin-bottom: 0px;
+            }
+            .video-stats{
+                color: grey;
+                font-size: 15px;
+                margin-top: 0px;
+            }
+            .channel-picture{
+                display: inline-block;
+                width: 50px;
+                vertical-align: top;
+            }
+            .video-info{
+                display: inline-block;
+                width: 200px;
+                margin-left: 10px;
+            }
+            .profile-picture{
+                width: 50px;
+                border-radius: 40px;
+            }
+            .channel-row{
+                margin-top: 10px;
+                position: relative;
+            }
+            .info-row-grid{
+                display: grid;
+                grid-template-columns: 50px 1fr;
+                margin-top: 10px;
+            }
+            .video-div{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                column-gap: 15px;
+                row-gap: 30px;
+            }
+            .header{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                justify-content: space-between;
+                height: 55px;
+                position: fixed;
+                top: 0;
+                background-color: white;
+
+                
+                
+            }      
+            .left-section{
+                width: 300px;
+                margin-left: 0px;
+                
+
+            }  
+           .middle-section {
+             width: 400px;
+             display: flex;
+             margin-left: 70px;
+             margin-right: 35px;
+             align-items: center;
+             max-width: 500px;
+            
+           }                   
+            .right-section{
+                display: flex;
+                align-items: center;
+                width: 280px;
+                justify-content: space-between;
+                margin-right: 20px;
+                margin-left: 100px;
+                flex-shrink: 0;
+        
+            
+            }
+            .search-bar{
+            flex: 1;
+            
+            
+            width: 0px;
+            
+            padding-left: 12px;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+            box-shadow: rgb(238, 238, 238) 0px 1px 2px inset;
+            height: 34px;
+            border-width: 1px;
+            border-style: solid;
+        
+
+            font-size: 16px;
+        
+
+
+
+
+
+            }
+            .youtube-logo{
+                width: 90px;
+                cursor: pointer;
+            }
+            .harmburger-menu{
+                height: 24px;
+                margin-left: 24px;
+                margin-right: 24px;
+                cursor: pointer;
+            }
+            img{
+                cursor: pointer;
+            }
+            .search-icon{
+                
+                height: 25px;
+                
+                
+                
+            }
+            .search-button{
+                height: 40px;
+                width: 60px;
+                background-color: rgb(250, 246, 246);
+                border-width: 1px;
+                border-style: solid;
+                border-color: rgb(202, 192, 192);
+                margin-left: -1px;
+
+
+            }
+            .voice-search-icon{
+                width: 20px; 
+                height: 24px;
+                background-color: rgb(250, 246, 246);           
+            }
+            .record-button{
+                width: 40px;
+                height: 40px;
+                align-items: center;
+                
+                margin-left: 8px;
+                border-radius: 20px;
+                border: none;
+
+
+            }
+            .upload-icon{
+                height: 24px;
+            }
+           .youtube-apps{
+            height: 24px;
+           }
+           .notifications-icon{
+            height: 24px;
+           }
+           .current-user-picture{
+            height: 32px;
+            border-radius: 16px;
+           }
+           .search-bar::placeholder{
+            font-family: roboto,arial;
+            font-size: 16px;
+           }
+           .side-bar{
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            top: 55px;
+            background-color: white;
+            width: 72px;
+
+           }
+           body{
+            
+           }
+           .video-time{
+            font-family: roboto,arial;
+            font-size: 12px;
+            font-weight: 500;
+            background-color: black;
+            color: white;
+            position: absolute;
+            bottom: 8px;
+            right: 5px;
+            padding-left: 2px;
+            padding-right: 2px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            border-radius: 2px;
+           }
+            
+        </style>   
+        
+
+
+    </head>
+    <body>
+        <div class="header">
+            <div class="left-section">
+                <img class="harmburger-menu" src="thumbnails/hamburger-menu.svg">
+                <img class="youtube-logo" src="thumbnails/youtube-logo.svg">
+
+            </div>
+            <div class="middle-section">
+                <input class="search-bar" type="text" placeholder="search">
+                 <button class="search-button">
+                    <img class="search-icon" src="thumbnails/search.svg">
+                 </button>
+                 <button class="record-button"> 
+                    <img class="voice-search-icon" src="thumbnails/voice-search-icon.svg">
+
+                 </button>
+            </div>
+
+                
+            <div class="right-section">
+                <img class="upload-icon" src="thumbnails/upload.svg">
+                <img class="youtube-apps" src="thumbnails/youtube-apps.svg">
+                <img class="notifications-icon" src="thumbnails/notifications.svg">
+                <img class="current-user-picture" src="thumbnails/my-channel.jpeg">
+            </div>
+
+            
+
+        </div>
+        <div class="side-bar">side bar</div>
+       
+        <div class="video-div" style="padding-top: 55px;
+        padding-left: 80px;">
+            <div class="video-preview">
+                <div class="channel-row">
+                    <img class="thumbnail" src="thumbnails/thumbnail-1 (1).webp">
+                    <div class="video-time">14:20</div>
+    
+                </div>
+                <div class="info-row-grid">
+                    <div class="channel-picture"><img class="profile-picture" src="thumbnails/channel-1.jpeg"></div>
+                    <div class="video-info">
+                        <p class="video-tittle">
+                            Talking Tech and AI with Google CEO Sundar Pichai!
+                        </p>
+                        <p class="video-author">
+                            
+                            
+                            Marques Brownlee
+                        </p>
+                       <P class="video-stats">
+                          3.4M views · 6 months ago
+                
+                
+                        </p>
+                
+    
+                    </div>
+                    
+    
+                    
+                    
+    
+                </div>
+                
+           
+    
+            </div>
+            <div class="video-preview">
+                <div class="channel-row">
+                    <img class="thumbnail" src="thumbnails/thumbnail-2.webp">
+                    <div class="video-time">8:22</div>
+                  </div>
+                <div class="info-row-grid">
+                    <div class="channel-picture">
+                        <img class="profile-picture" src="thumbnails/channel-2.jpeg">
+                    </div>
+                    <div class="video-info">
+                        <p class="video-tittle">
+                
+                            Try Not To Laugh Challenge #9
+                          </p>
+                          <p class="video-author">
+                              
+                  
+                  
+                            Markiplier
+                  
+                  
+                              
+                              
+                              
+                          </p>
+                         <P class="video-stats">
+                          19M views · 4 years ago
+                  
+                  
+                          </p>
+                  
+                  
+                        
+                
+                            
+                  
+                  
+    
+                    </div>
+    
+                </div>
+                
+            
+    
+    
+            </div>
+            <div class="video-preview">
+                <div class="channel-row">
+                    <img class="thumbnail" src="thumbnails/thumbnail-3.webp">
+                    <div class="video-time">9:13</div>
+    
+                </div>
+                <div class="info-row-grid">
+                    <div class="channel-picture"><img class="profile-picture" src="thumbnails/channel-3.jpeg"></div>
+                    <div class="video-info">
+                        <p class="video-tittle">
+                            
+                            Crazy Tik Toks Taken Moments Before DISASTER
+                        </p>
+                        <p class="video-author">
+                            
+                            
+                            
+    
+    
+                                SSSniperWolf
+    
+    
+                        </p>
+                       <P class="video-stats">
+                          12M views · 1 year ago
+                
+                
+                        </p>
+                
+    
+                    </div>
+                    
+    
+                    
+                    
+    
+                </div>
+                
+           
+    
+            </div>
+            <div class="video-preview">
+                <div class="channel-row"><img class="thumbnail" src="thumbnails/thumbnail-4.webp">
+                    <div class="video-time">22:09</div>
+                    </div>
+                
+                </div>
+                <div class="info-row-grid">
+                    <div class="channel-picture">
+                        <img class="profile-picture" src="thumbnails/channel-4.jpeg">
+                    </div>
+                    <div class="video-info">
+                        <p class="video-tittle">
+                
+                            
+                               The Simplest Math Problem No One Can Solve - Collatz Conjecture
+                          </p>
+                          <p class="video-author">
+                              
+                  
+                  
+                            
+    
+    
+                                    Veritasium
+    
+    
+    
+    
+                  
+                  
+                              
+                              
+                              
+                          </p>
+                         <P class="video-stats">
+                            18M views · 4 months ago
+                  
+                  
+                          </p>
+                  
+                  
+                        
+                
+                            
+                  
+                  
+    
+                    </div>
+    
+                </div>
+                
+            
+    
+    
+            </div>
+            <div class="video-preview">
+                <div class="channel-row">
+                    <img class="thumbnail" src="thumbnails/thumbnail-5.webp">
+                    <div class="video-time">11:17</div>
+    
+                </div>
+                <div class="info-row-grid">
+                    <div class="channel-picture"><img class="profile-picture" src="thumbnails/channel-5.jpeg"></div>
+                    <div class="video-info">
+                        <p class="video-tittle">
+                             
+                           Kadane's Algorithm to Maximum Sum Subarray Problem
+                        </p>
+                        <p class="video-author">
+                            
+                            
+                        
+    
+                              CS Dojo
+    
+                        </p>
+                       <P class="video-stats">
+                          
+                              519K views · 5 years ago
+                
+                
+                        </p>
+                
+    
+                    </div>
+                    
+    
+                    
+                    
+    
+                </div>
+                
+           
+    
+            </div>
+            <div class="video-preview">
+                <div class="channel-row"><img class="thumbnail" src="thumbnails/thumbnail-6.webp"></div>
+                <div class="info-row-grid">
+                    <div class="channel-picture">
+                        <img class="profile-picture" src="thumbnails/channel-6.jpeg">
+                    </div>
+                    <div class="video-info">
+                        <p class="video-tittle">
+                            
+                          Anything You Can Fit In The Circle I’ll Pay For
+                
+                            
+                          </p>
+                          <p class="video-author">
+                              
+                  
+                  
+                            
+    
+    
+                                    MrBeast
+    
+                  
+                  
+                              
+                              
+                              
+                          </p>
+                         <P class="video-stats">
+                            
+                             141M views · 1 year ago
+                  
+                  
+                          </p>
+                  
+                  
+                        
+                
+                            
+                  
+                  
+    
+                    </div>
+    
+                </div>
+                
+            
+    
+    
+            </div>
+            <div class="video-preview">
+                <div class="channel-row">
+                    <img class="thumbnail" src="thumbnails/thumbnail-7.webp">
+    
+                </div>
+                <div class="info-row-grid">
+                    <div class="channel-picture"><img class="profile-picture" src="thumbnails/channel-7.jpeg"></div>
+                    <div class="video-info">
+                        <p class="video-tittle">
+                             
+                           Kadane's Algorithm to Maximum Sum Subarray Problem
+                        </p>
+                        <p class="video-author">
+                            
+                            
+                        
+    
+                              CS Dojo
+    
+                        </p>
+                       <P class="video-stats">
+                          
+                              519K views · 5 years ago
+                
+                
+                        </p>
+                
+    
+                    </div>
+                    
+    
+                    
+                    
+    
+                </div>
+                
+           
+    
+            </div>
+            <div class="video-preview">
+                <div class="channel-row"><img class="thumbnail" src="thumbnails/thumbnail-8.webp"></div>
+                <div class="info-row-grid">
+                    <div class="channel-picture">
+                        <img class="profile-picture" src="thumbnails/channel-8.jpeg">
+                    </div>
+                    <div class="video-info">
+                        <p class="video-tittle">
+                            
+                          Anything You Can Fit In The Circle I’ll Pay For
+                
+                            
+                          </p>
+                          <p class="video-author">
+                              
+                  
+                  
+                            
+    
+    
+                                    MrBeast
+    
+                  
+                  
+                              
+                              
+                              
+                          </p>
+                         <P class="video-stats">
+                            
+                             141M views · 1 year ago
+                  
+                  
+                          </p>
+                  
+                  
+                        
+                
+                            
+                  
+                  
+    
+                    </div>
+    
+                </div>
+                
+            
+    
+    
+            </div>
+    
+    
+    
+
+        </div>
+        <img src="thumbnails/thumbnail-1 (1).webp">
+        
+
+
+
+
+        
+    </body>
+</html>    
